@@ -85,6 +85,9 @@ fun RencanaStudyView(
                 )
                 .fillMaxSize()
             ){
+                Column {
+
+                }
 
             }
         }
