@@ -114,6 +114,11 @@ fun RencanaStudyView(
                     HorizontalDivider()
                     Spacer(modifier = Modifier.padding(8.dp))
                     Text(text = "Pilih Kelas Belajar", fontWeight = FontWeight.Bold)
+                    Text(
+                        text = "Silahkkan pilih kelas dari mata kuliah yang anda inginkan",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Light
+                    )
                     
                     Row (
                         modifier = Modifier.fillMaxWidth(),
