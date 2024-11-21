@@ -33,6 +33,7 @@ import com.example.praktikum6.model.Mahasiswa
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.praktikum6.data.MataKuliah
+import com.example.praktikum6.data.RuangKelas
 import com.example.praktikum6.ui.widget.DynamicSelectedField
 
 @Composable
@@ -119,12 +120,18 @@ fun RencanaStudyView(
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Light
                     )
+                    Spacer(modifier = Modifier.padding(8.dp))
                     
                     Row (
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ){
+                        RuangKelas.kelas.forEach {listData ->
+                            Row (verticalAlignment = Alignment.CenterVertically){
 
+                            }
+
+                        }
                     }
                 }
 
