@@ -30,6 +30,8 @@ import com.example.praktikum6.R
 import com.example.praktikum6.model.Mahasiswa
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.praktikum6.data.MataKuliah
+import com.example.praktikum6.ui.widget.DynamicSelectedField
 
 @Composable
 fun RencanaStudyView(
@@ -98,6 +100,15 @@ fun RencanaStudyView(
                         fontWeight = FontWeight.Light
                     )
                     Spacer(modifier = Modifier.padding(8.dp))
+                    DynamicSelectedField(
+                        selectedValue = chosenDropdown,
+                        options = MataKuliah.options,
+                        label = "Mata Kuliah",
+                        onValueChangedEvent = {
+                            chosenDropdown = it
+                        }
+                    )
+
                     Row (
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly
