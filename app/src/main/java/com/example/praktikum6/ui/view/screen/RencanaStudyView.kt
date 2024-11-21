@@ -1,5 +1,6 @@
 package com.example.praktikum6.ui.view.screen
 
+import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsetsSides.Companion.Horizontal
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -108,7 +110,11 @@ fun RencanaStudyView(
                             chosenDropdown = it
                         }
                     )
-
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    HorizontalDivider()
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    Text(text = "Pilih Kelas Belajar", fontWeight = FontWeight.Bold)
+                    
                     Row (
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly
