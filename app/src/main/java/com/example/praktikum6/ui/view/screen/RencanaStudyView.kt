@@ -13,9 +13,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -54,7 +57,7 @@ fun RencanaStudyView(
     var pilihanKelas by remember {
         mutableStateOf("")
     }
-    val listData: MutableList<String> = mutableListOf(chosenDropdown, pilihanKelas)
+    var listData: MutableList<String> = mutableListOf(chosenDropdown, pilihanKelas)
     Column (
         modifier = Modifier
             .fillMaxSize()
@@ -64,7 +67,6 @@ fun RencanaStudyView(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically
         ){
             Image(painter = painterResource(id = R.drawable.img), contentDescription = "",
                 modifier = Modifier
@@ -84,86 +86,91 @@ fun RencanaStudyView(
                     color = Color.White
                 )
             }
-            Box(modifier = Modifier
-                .background(
-                    color = Color.White,
-                    shape = RoundedCornerShape(
-                        topEnd = 15.dp,
-                        topStart = 15.dp
-                    )
+            Box{
+                Icon(imageVector = Icons.Filled.Notifications,
+                    contentDescription = "",
+                    tint = Color.White)
+            }
+        }
+        Box(modifier = Modifier
+            .background(
+                color = Color.White,
+                shape = RoundedCornerShape(
+                    topEnd = 15.dp,
+                    topStart = 15.dp
                 )
-                .fillMaxSize()
+            )
+            .fillMaxSize()
+        ){
+            Column (
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp)
             ){
-                Column (
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp)
-                ){
-                    Text(text = "Pilih Mata Kuliah Peminatan", fontWeight = FontWeight.Bold)
-                    Text(
-                        text = "Silahkan pilih mata kuliah yang anda inginkan",
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Light
-                    )
-                    Spacer(modifier = Modifier.padding(8.dp))
-                    DynamicSelectedField(
-                        selectedValue = chosenDropdown,
-                        options = MataKuliah.options,
-                        label = "Mata Kuliah",
-                        onValueChangedEvent = {
-                            chosenDropdown = it
-                        }
-                    )
-                    Spacer(modifier = Modifier.padding(8.dp))
-                    HorizontalDivider()
-                    Spacer(modifier = Modifier.padding(8.dp))
-                    Text(text = "Pilih Kelas Belajar", fontWeight = FontWeight.Bold)
-                    Text(
-                        text = "Silahkkan pilih kelas dari mata kuliah yang anda inginkan",
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Light
-                    )
-                    Spacer(modifier = Modifier.padding(8.dp))
-                    
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly
-                    ){
-                        RuangKelas.kelas.forEach {listData ->
-                            Row (verticalAlignment = Alignment.CenterVertically){
-                                RadioButton(
-                                    selected = pilihanKelas == listData, 
-                                    onClick = { pilihanKelas = listData})
-                            }
-                            Text(listData)
+                Text(text = "Pilih Mata Kuliah Peminatan", fontWeight = FontWeight.Bold)
+                Text(
+                    text = "Silahkan pilih mata kuliah yang anda inginkan",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Light
+                )
+                Spacer(modifier = Modifier.padding(8.dp))
+                DynamicSelectedField(
+                    selectedValue = chosenDropdown,
+                    options = MataKuliah.options,
+                    label = "Mata Kuliah",
+                    onValueChangedEvent = {
+                        chosenDropdown = it
+                    }
+                )
+                Spacer(modifier = Modifier.padding(8.dp))
+                HorizontalDivider()
+                Spacer(modifier = Modifier.padding(8.dp))
+                Text(text = "Pilih Kelas Belajar", fontWeight = FontWeight.Bold)
+                Text(
+                    text = "Silahkkan pilih kelas dari mata kuliah yang anda inginkan",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Light
+                )
+                Spacer(modifier = Modifier.padding(8.dp))
 
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ){
+                    RuangKelas.kelas.forEach {listData ->
+                        Row (verticalAlignment = Alignment.CenterVertically){
+                            RadioButton(
+                                selected = pilihanKelas == listData,
+                                onClick = { pilihanKelas = listData})
                         }
+                        Text(listData)
+
                     }
-                    Spacer(modifier = Modifier.padding(8.dp))
-                    HorizontalDivider()
-                    Spacer(modifier = Modifier.padding(8.dp))
-                    Text(text = "Klausul Persetujuan Mahasiswa", fontWeight = FontWeight.Bold)
-                    Row (verticalAlignment = Alignment.CenterVertically){
-                        Checkbox(
-                            checked = checked,
-                            onCheckedChange = {checked = it},
-                            enabled = chosenDropdown.isNotBlank() && pilihanKelas.isNotBlank()
-                        )
-                        Text(
-                            text = "Saya menyetujui setiap pernyataan yang ada tanpa ada paksaan dari pihak manapun.",
-                            fontWeight = FontWeight.Light, fontSize = 10.sp)
+                }
+                Spacer(modifier = Modifier.padding(8.dp))
+                HorizontalDivider()
+                Spacer(modifier = Modifier.padding(8.dp))
+                Text(text = "Klausul Persetujuan Mahasiswa", fontWeight = FontWeight.Bold)
+                Row (verticalAlignment = Alignment.CenterVertically){
+                    Checkbox(
+                        checked = checked,
+                        onCheckedChange = {checked = it},
+                        enabled = chosenDropdown.isNotBlank() && pilihanKelas.isNotBlank()
+                    )
+                    Text(
+                        text = "Saya menyetujui setiap pernyataan yang ada tanpa ada paksaan dari pihak manapun.",
+                        fontWeight = FontWeight.Light, fontSize = 10.sp)
+                }
+                Spacer(modifier = Modifier.padding(8.dp))
+                Row (
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ){
+                    Button(onClick = { onBackButtonClicked() }) {
+                        Text(text = "Kembali")
                     }
-                    Spacer(modifier = Modifier.padding(8.dp))
-                    Row (
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly
-                    ){
-                        Button(onClick = { onBackButtonClicked() }) {
-                            Text(text = "Kembali")
-                        }
-                        Button(onClick = { onSubmitButtonClicked(listData) }, enabled = checked) {
-                            Text(text = "Lanjut")
-                        }
+                    Button(onClick = { onSubmitButtonClicked(listData) }, enabled = checked) {
+                        Text(text = "Lanjut")
                     }
                 }
             }
