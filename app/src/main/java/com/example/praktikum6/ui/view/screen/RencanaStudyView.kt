@@ -54,7 +54,7 @@ fun RencanaStudyView(
     var pilihanKelas by remember {
         mutableStateOf("")
     }
-    var listData: MutableList<String> = mutableListOf(chosenDropdown, pilihanKelas)
+    val listData: MutableList<String> = mutableListOf(chosenDropdown, pilihanKelas)
     Column (
         modifier = Modifier
             .fillMaxSize()

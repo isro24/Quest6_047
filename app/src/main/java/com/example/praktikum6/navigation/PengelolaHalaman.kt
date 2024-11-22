@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.praktikum6.ui.view.screen.DetailMahasiswaView
 import com.example.praktikum6.ui.view.screen.MahasiswaFormView
 import com.example.praktikum6.ui.view.screen.RencanaStudyView
 import com.example.praktikum6.ui.view.screen.SplashView
@@ -19,6 +20,7 @@ enum class Halaman {
     Splash,
     Mahasiswa,
     Matakuliah,
+    Tampil
 }
 
 @Composable
@@ -29,7 +31,9 @@ fun MahasiswaApp(
     navController: NavHostController = rememberNavController()
 )
 {
-    val mahasiswaUiState = mahasiswaViewModel.mhsStateUi.collectAsState()
+    val mahasiswaUiState = mahasiswaViewModel.mhsStateUi.collectAsState().value
+    val krsUiState = krsViewModel.krsStateUi.collectAsState().value
+
     NavHost(
         navController = navController,
         startDestination = Halaman.Splash.name,
@@ -52,11 +56,20 @@ fun MahasiswaApp(
                 }
             )
         }
-        composable(route = Halaman.Mahasiswa.name){
+        composable(route = Halaman.Matakuliah.name){
             RencanaStudyView(
-                mahasiswa = mahasiswaUiState.value,
+                mahasiswa = mahasiswaUiState,
                 onSubmitButtonClicked = { krsViewModel.saveDataKRS(it)},
                 onBackButtonClicked = { navController.popBackStack()}
+            )
+        }
+        composable(route = Halaman.Tampil.name){
+            DetailMahasiswaView(
+                dataMhs = mahasiswaUiState,
+                DataKRS = krsUiState,
+                onClickButton = {
+                    navController.popBackStack()
+                }
             )
         }
     }
