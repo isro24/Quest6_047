@@ -1,8 +1,6 @@
 package com.example.praktikum6.model
 
-class RencanaStudi (
-    val mataKuliah: String = "",
+data class RencanaStudi (
+    val namaMK: String = "",
     val kelas: String = ""
-){
-
-}
+)

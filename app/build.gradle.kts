@@ -70,5 +70,5 @@ dependencies {
     //Dependencies Baru
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.6")
     implementation("androidx.navigation:navigation-compose:2.8.3")
-
+    implementation ("androidx.compose.material3:material3:1.2.0")
 }

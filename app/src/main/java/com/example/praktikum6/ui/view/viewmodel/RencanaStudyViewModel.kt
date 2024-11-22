@@ -1,7 +1,6 @@
 package com.example.praktikum6.ui.view.viewmodel
 
 import androidx.lifecycle.ViewModel
-import androidx.room.util.copy
 import com.example.praktikum6.model.RencanaStudi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
