@@ -40,6 +40,7 @@ import com.example.praktikum6.data.MataKuliah
 import com.example.praktikum6.data.RuangKelas
 import com.example.praktikum6.ui.widget.DynamicSelectedField
 
+
 @Composable
 fun RencanaStudyView(
     mahasiswa: Mahasiswa,
@@ -167,10 +168,7 @@ fun RencanaStudyView(
                         }
                     }
                 }
-
             }
         }
-
     }
-
 }
