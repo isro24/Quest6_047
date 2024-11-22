@@ -1,5 +1,6 @@
 package com.example.praktikum6.navigation
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.praktikum6.ui.view.viewmodel.MahasiswaViewModel
@@ -20,5 +21,10 @@ fun MahasiswaApp(
     navController: NavHostController = rememberNavController()
 )
 {
-
+    val mahasiswaUiState = mahasiswaViewModel.mahasiswaUiState.collectAsState().value
+    NavHost(
+        navController = navController,
+        startDestination = Halaman.Splash.name,
+        modifier = Modifier.padding()
+    )
 }
