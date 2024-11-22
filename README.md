@@ -5,7 +5,7 @@
 ![image](https://github.com/user-attachments/assets/92a11f05-aa43-4d1f-ad27-5ab429645d08)
 
 ** Form Rencana Studi **
-![image](https://github.com/user-attachments/assets/41e35401-912d-4212-a439-fadd5b04bd3c)
+![image](https://github.com/user-attachments/assets/b291d90f-25b4-4440-ab2f-cd9103883dd7)
 
 ** Detail Mahasiswa **
 ![image](https://github.com/user-attachments/assets/cf9334b6-2bca-463e-9bcf-75ae541fca96)
